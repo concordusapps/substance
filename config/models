@@ -1,0 +1,102 @@
+-- User stuff to make the scaffolding work.
+User
+    ident Text
+    password Text Maybe
+    UniqueUser ident
+    deriving Typeable
+Email
+    email Text
+    user UserId Maybe
+    verkey Text Maybe
+    UniqueEmail email
+
+-- These are our base CMIS object types.
+
+-- The bare minimum is to have a document and folder.
+-- They must have the following attributes:
+--      localName, localNamespace, queryName, displayName, baseId, parentId,
+--      description, creatable, fileable, queryable, controllablePolicy,
+--      controllableACL, fulltextIndexed, includedInSupertypeQuery,
+--      typeMutability.create, typeMutability.update, typeMutability.delete
+
+Document
+    localName                   Text
+    localNamespace              Text Maybe
+    queryName                   Text Maybe
+    displayName                 Text Maybe
+    baseId                      CMISBase
+    parentId                    Int Maybe
+    description                 Text Maybe
+    creatable                   Bool
+    fileable                    Bool
+    queryable                   Bool
+    controllablePolicy          Bool
+    controllableACL             Bool
+    fulltextIndexed             Bool
+    includedInSupertypeQuery    Bool
+    typeMutability_create       Bool Maybe
+    typeMutability_update       Bool Maybe
+    typeMutability_delete       Bool Maybe
+    deriving Show
+
+Folder
+    localName                   Text
+    localNamespace              Text Maybe
+    queryName                   Text Maybe
+    displayName                 Text Maybe
+    baseId                      CMISBase
+    parentId                    Int Maybe
+    description                 Text Maybe
+    creatable                   Bool
+    fileable                    Bool
+    queryable                   Bool
+    controllablePolicy          Bool
+    controllableACL             Bool
+    fulltextIndexed             Bool
+    includedInSupertypeQuery    Bool
+    typeMutability_create       Bool Maybe
+    typeMutability_update       Bool Maybe
+    typeMutability_delete       Bool Maybe
+    deriving Show
+
+-- CMIS object type properties
+Property
+    localName       Text Maybe
+    localNamespace  Text Maybe
+    queryName       Text Maybe
+    displayName     Text Maybe
+    description     Text Maybe
+    propertyType    CMISProperty
+    cardinality     CMISCardinality
+    updatability    CMISUpdatability
+    inherited       Bool
+    required        Bool
+    queryable       Bool
+    orderable       Bool
+--    choices         [CMISChoice] Maybe
+--    openChoices     Bool Maybe
+--    defaultValue    CMISPropery Maybe
+    deriving Show
+
+IntegerProperty
+    minValue    Int
+    maxValue    Int
+    propertyId  PropertyId
+    deriving Show
+
+DateTimeProperty
+    resolution  CMISResolution
+    propertyId  PropertyId
+    deriving Show
+
+DecimalProperty
+    precision   CMISPrecision
+    minValue    Int
+    maxValue    Int
+    propertyId  PropertyId
+    deriving Show
+
+StringProperty
+    maxLength   Int
+    propertyId  PropertyId
+    deriving Show

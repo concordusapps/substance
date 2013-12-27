@@ -1,0 +1,24 @@
+Default: &defaults
+  user: substance
+  password: substance
+  host: localhost
+  port: 5432
+  database: substance
+  poolsize: 10
+
+Development:
+  <<: *defaults
+
+Testing:
+  database: substance_test
+  <<: *defaults
+
+Staging:
+  database: substance_staging
+  poolsize: 100
+  <<: *defaults
+
+Production:
+  database: substance_production
+  poolsize: 100
+  <<: *defaults
