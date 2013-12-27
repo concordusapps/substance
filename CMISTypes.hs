@@ -3,12 +3,17 @@ module CMISTypes where
 import Database.Persist.TH
 import Prelude
 
+data CMISPermission = CMISPermBasic
+                    | CMISPermRepository
+                    | CMISPermBoth
+                    deriving (Eq, Read, Show)
+derivePersistField "CMISPermission"
+
 data CMISBase = CMISDocument
               | CMISFolder
               | CMISRelationship
               | CMISPolicy
               | CMISItem
-              | CMISSecondary
               deriving (Bounded, Enum, Eq, Read, Show)
 derivePersistField "CMISBase"
 

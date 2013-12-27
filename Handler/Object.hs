@@ -1,4 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
 module Handler.Object where
 
 import Import
@@ -16,7 +15,7 @@ getObjectR = do
 postObjectR :: Handler Html
 postObjectR = do
     ((res, form), enctype) <- runFormPost objForm
-    objs <- runDB $ selectList [ObjectTypeLocalName !=. "klajsflksjafs;klff"] []
+    objs <- runDB $ selectList ([] :: [Filter ObjectType]) []
     case res of
         FormSuccess obj -> do
             _ <- runDB $ insert obj
@@ -31,7 +30,6 @@ objAForm = ObjectType
          <*> pure Nothing
          <*> pure Nothing
          <*> areq (selectFieldList baseTypes) "Base Type" (Just CMISDocument)
-         <*> pure Nothing
          <*> aopt textField "Description" Nothing
          <*> areq boolField "Can we create new ObjectTypes?" Nothing
          <*> areq boolField "Is this fileable?" Nothing

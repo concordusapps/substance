@@ -1,6 +1,6 @@
 <h1> Create a new object type.
 
-$forall Entity objid obj <- objs
+$forall Entity _ obj <- objs
   <p> #{objectTypeLocalName obj}
 <form enctype=#{enctype} method=post>
   ^{form}

@@ -1,19 +1,49 @@
--- User stuff to make the scaffolding work.
-User
-    ident Text
-    password Text Maybe
-    UniqueUser ident
-    deriving Typeable
-Email
-    email Text
-    user UserId Maybe
-    verkey Text Maybe
-    UniqueEmail email
+--  Repository
 
--- These are our base CMIS object types.
+Repository
+    repositoryName                          Text
+    repositoryDescription                   Text
+    vendorName                              Text
+    productName                             Text
+    productVersion                          Text
+--    rootFolderId
+    latestChangeLogToken                    Text
+    cmisVersionSupported                    Text
+--    thinClientURI                           URI Maybe
+    changesIncomplete                       Bool
+--    changesOnType
+    supportedPermissions                    CMISPermission
+--    propagation
+--    permissions
+--    mapping
+    principalAnonymous                      Text
+    principalAnyone                         Text
+--    extendedFeatures
+--    capabilities
+--  These are all optional.
+--    capabilityGetDescendants
+--    capabilityGetFolderTree
+--    capabilityOrderBy
+--    capabilityContentStreamUpdatability
+--    capabilityChanges
+--    capabilityRenditions
+--    capabilityMultifiling
+--    capabilityUnfiling
+--    capabilityVersionSpecificFiling
+--    capabilityPWCUpdatable
+--    capabilityPWCSearchable
+--    capabilityAllVersionsSearchable
+--    capabilityQuery
+--    capabilityJoin
+--    capabilityCreatablePropertyTypes
+--    capabilityNewTypeSettableAttributes
+--    capabilityACL
+    deriving Show
 
--- The bare minimum is to have a document and folder.
--- They must have the following attributes:
+--  These are our base CMIS object types.
+
+--  The bare minimum is to have a document and folder.
+--  They must have the following attributes:
 --      localName, localNamespace, queryName, displayName, baseId, parentId,
 --      description, creatable, fileable, queryable, controllablePolicy,
 --      controllableACL, fulltextIndexed, includedInSupertypeQuery,
@@ -25,7 +55,7 @@ ObjectType
     queryName                   Text Maybe
     displayName                 Text Maybe
     baseId                      CMISBase
-    parentId                    Int Maybe
+--    parentId
     description                 Text Maybe
     creatable                   Bool
     fileable                    Bool
@@ -45,7 +75,7 @@ Folder
     queryName                   Text Maybe
     displayName                 Text Maybe
     baseId                      CMISBase
-    parentId                    Int Maybe
+--    parentId
     description                 Text Maybe
     creatable                   Bool
     fileable                    Bool

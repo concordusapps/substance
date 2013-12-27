@@ -20,8 +20,8 @@ library
                      Settings
                      Settings.StaticFiles
                      Settings.Development
-                     Handler.Home
                      Handler.Object
+                     Handler.Repositories
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT
