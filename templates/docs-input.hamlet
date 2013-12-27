@@ -1,0 +1,13 @@
+#{extra}
+<p> Let's create a new object type
+
+<div> We're going to call this ^{fvInput lNameView}
+<div> With the description ^{fvInput descView}
+<div> Can we create new documents? ^{fvInput createView}
+<div> Is this fileable? ^{fvInput fileView}
+<div> Is this queryable? ^{fvInput queryView}
+<div> is this be controlled by a policy? ^{fvInput policyView}
+<div> Is this controllable by an ACL? ^{fvInput aclView}
+<div> Is this full text searchable? ^{fvInput indexedView}
+<div> Is this included in any searches of its parents? ^{fvInput superQueryView}
+<input type=submit value="Create new type">

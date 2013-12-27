@@ -9,7 +9,7 @@ data CMISBase = CMISDocument
               | CMISPolicy
               | CMISItem
               | CMISSecondary
-              deriving (Eq, Read, Show)
+              deriving (Bounded, Enum, Eq, Read, Show)
 derivePersistField "CMISBase"
 
 data CMISProperty = CMISString

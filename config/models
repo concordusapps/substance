@@ -19,7 +19,7 @@ Email
 --      controllableACL, fulltextIndexed, includedInSupertypeQuery,
 --      typeMutability.create, typeMutability.update, typeMutability.delete
 
-Document
+ObjectType
     localName                   Text
     localNamespace              Text Maybe
     queryName                   Text Maybe

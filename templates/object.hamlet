@@ -1,0 +1,7 @@
+<h1> Create a new object type.
+
+$forall Entity objid obj <- objs
+  <p> #{objectTypeLocalName obj}
+<form enctype=#{enctype} method=post>
+  ^{form}
+  <input type=submit value="Create a new type">
